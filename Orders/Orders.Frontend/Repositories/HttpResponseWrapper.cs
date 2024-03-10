@@ -1,4 +1,5 @@
-﻿namespace Orders.Frontend.Repositories
+﻿using System.Net;
+namespace Orders.Frontend.Repositories
 {
     public class HttpResponseWrapper<T>
     {
@@ -21,24 +22,24 @@
             }
 
             var statusCode = HttpResponseMessage.StatusCode;
-            if (statusCode == System.Net.HttpStatusCode.NotFound) 
+            if (statusCode == HttpStatusCode.NotFound) 
             {
                 return "Recurso no encontrado.";
             }
-            if (statusCode == System.Net.HttpStatusCode.BadRequest)
+            if (statusCode == HttpStatusCode.BadRequest)
             {
                 return await HttpResponseMessage.Content.ReadAsStringAsync();
             }
-            if (statusCode == System.Net.HttpStatusCode.Unauthorized)
+            if (statusCode == HttpStatusCode.Unauthorized)
             {
                 return "Tienes que estar logueado para ejecutar esta operación.";
             }
-            if (statusCode == System.Net.HttpStatusCode.Forbidden)
+            if (statusCode == HttpStatusCode.Forbidden)
             {
                 return "No tienes permisos para ejecutar esta operación.";
             }
 
-            return "Ha ocurrido un error inesperado";
+            return "Ha ocurrido un error inesperado.";
         }
     }
 }

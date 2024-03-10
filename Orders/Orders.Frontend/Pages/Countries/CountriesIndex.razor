@@ -22,7 +22,7 @@ else
             <tr>
                 <td>@country.Name</td>
                 <td>
-                    <a class="btn btn-warning">Editar</a>
+                    <a href ="/countries/edit/@country.Id" class="btn btn-warning">Editar</a>
                     <button class="btn btn-danger">Borrar</button>
                 </td>
             </tr>
@@ -31,7 +31,8 @@ else
 </table>
 }
 
-@code {
+@code 
+{
     public List<Country>? Countries { get; set; }
 
     protected async override Task OnInitializedAsync()
