@@ -38,7 +38,7 @@ namespace Orders.Frontend.Pages.Countries
                 ShowCancelButton = true,    
             });
             var confirm = !string.IsNullOrEmpty(result.Value);
-            if(confirm) 
+            if (confirm) 
             {
                 return;
             }

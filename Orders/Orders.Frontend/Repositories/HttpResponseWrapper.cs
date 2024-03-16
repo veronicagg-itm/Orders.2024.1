@@ -36,7 +36,7 @@ namespace Orders.Frontend.Repositories
             }
             if (statusCode == HttpStatusCode.Forbidden)
             {
-                return "No tienes permisos para ejecutar esta operación.";
+                return "No tienes permisos para hacer esta operación.";
             }
 
             return "Ha ocurrido un error inesperado.";

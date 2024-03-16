@@ -32,13 +32,13 @@ namespace Orders.Frontend.Repositories
             var messageJson = JsonSerializer.Serialize(model);
             var messageContent = new StringContent(messageJson, Encoding.UTF8, "application/json");
             var responseHttp = await _httpClient.PostAsync(url, messageContent);
-            return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp);
+            return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp); ;
         }
 
         public async Task<HttpResponseWrapper<TActionResponse>> PostAsync<T, TActionResponse>(string url, T model)
         {
             var messageJson = JsonSerializer.Serialize(model);
-            var messageContent = new StringContent(messageJson, Encoding.UTF8, "application/json");    
+            var messageContent = new StringContent(messageJson, Encoding.UTF8, "application/json");
             var responseHttp = await _httpClient.PostAsync(url, messageContent);
             if (responseHttp.IsSuccessStatusCode)
             {
@@ -51,7 +51,7 @@ namespace Orders.Frontend.Repositories
         public async Task<HttpResponseWrapper<object>> DeleteAsync<T>(string url)
         {
             var responseHttp = await _httpClient.DeleteAsync(url);
-            return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp);
+            return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp); ;
         }
 
         public async Task<HttpResponseWrapper<object>> PutAsync<T>(string url, T model)
@@ -59,7 +59,7 @@ namespace Orders.Frontend.Repositories
             var messageJson = JsonSerializer.Serialize(model);
             var messageContent = new StringContent(messageJson, Encoding.UTF8, "application/json");
             var responseHttp = await _httpClient.PutAsync(url, messageContent);
-            return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp);
+            return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp); ;
         }
 
         public async Task<HttpResponseWrapper<TActionResponse>> PutAsync<T, TActionResponse>(string url, T model)
